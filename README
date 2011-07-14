@@ -1,0 +1,39 @@
+Copyright (c) <2011> <Paul M. De Goes : pauldegoes@hotmail.com>
+
+Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php 
+
+
+warg.js is a lightweight JavaScript library which extends the functionality of JavaScript arrays with basic functional constructs.  Modern browsers (IE excluded, of course) provide some of this functionality in their JS implementations (foreach, map), but these provisions are inadequate in many cases.  The current plugin supports the following methods:
+
+  foreach :
+    Examples :
+      [1, 2, 3].foreach(alert("foo"));              => alerts "foo" 3 times;
+      
+      ["foo", "bar"].foreach(alert);                => alerts "foo"; alerts "bar";
+      
+  append :
+    Examples : 
+      [1, 2, 3].append(4);                          => returns [1, 2, 3, 4]
+  
+  map :
+    [1, 2, 3].map(function(number) {                => returns [1, 4, 6]
+      return number * 2; 
+    });
+    
+    ["foo", "bar"].map(function(s) {                => returns  ["foo:foo", "bar:bar"]
+      return s + ":" + s;
+    });
+    
+  filter :
+    [1, 2, 3, 4, 5, 6].filter(function(n) {         => returns [4, 5, 6]
+      return (n>3) ? true : false;
+    })
+    
+  foldl :
+    [1, 2, 3, 4].foldl(0, function(init, el) {      => returns 10;
+      return init + el;
+    });
+    
+    [1, 2, 3, 4, 5].foldl([], function(init, el) {  => returns [0.5, 1, 1.5, 2, 2.5]
+      return init.append(el / 2);
+    });
